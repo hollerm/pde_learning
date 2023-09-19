@@ -21,12 +21,15 @@ pardict = {
 'n_tmeas': 6,
 'nstd':0.03
 }
+outfolder = 'demo_result'
 
 res = pdl.pde_learning(**pardict)
 #Store result
-res.save(fname='quadratic_u_w_discmeas',outpars=['niter','n_tmeas','nstd'],folder='demo_result')
+res.save(fname='quadratic_u_w_discmeas',outpars=['niter','n_tmeas','nstd'],folder=outfolder)
+print('#############################')
+print('Result stored in ' + outfolder)
 
 #Export result
-pdl_supp.export_paper(res,display=False,mode='u_w',outfolder='demo_result/figures')                                
+pdl_supp.export_paper(res,display=False,mode='u_w',outfolder=outfolder + '/figures')                                
         
-
+print('Figures printed to ' + outfolder + '/figures')
